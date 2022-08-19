@@ -25,11 +25,6 @@
 }
 
 .nav__bubble {
-    background-color: tomato;
-    width: 7px;
-    height: 7px;
-    display: flex;
-    border-radius: 50%;
     position: absolute;
     right: -10px;
     top: -12px;

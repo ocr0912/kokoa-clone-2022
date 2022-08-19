@@ -12,6 +12,13 @@
     font-weight: 600;
 }
 
-.screen-header__icons span {
+.screen-header__icon {
+    position: relative;
     margin-left: 25px;
+}
+
+.cog__bubble {
+    position: absolute;
+    right: -5px;
+    top: -7px;
 }
