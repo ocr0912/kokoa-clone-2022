@@ -49,6 +49,22 @@
     color: rgba(0, 0, 0, 0.5);
 }
 
+.user-component__alert-icon {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    color: tomato;
+    font-weight: 600;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid tomato;
+    border-radius: 50%;
+    line-height: 12px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
 .user-component__time {
     display: block;
     margin-bottom: 10px;
