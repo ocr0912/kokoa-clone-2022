@@ -1,6 +1,6 @@
 #chat-screen {
     background-color: #abc1d1;
-    height: 11000vh;
+    height: 5000vh;
 }
 
 #chat-screen .alt-header {
@@ -22,11 +22,18 @@
     z-index: 1;
 }
 
+/* @keyframes fadeIn {
+    from {transform:translateY(30px); opacity: 0;}
+    to {transform:none; opacity: 1;}
+} */
+
 .main-chat {
     margin-top: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+    /* animation: fadeIn 0.8s linear; */
 }
 
 .chat__timestamp {
@@ -76,8 +83,40 @@
     opacity: 0.8;
 }
 
+@keyframes message-right-popup {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.message-row--anyone {
+    animation: message-right-popup 0.3s ease-in-out forwards;
+}
+
+@keyframes message-left-popup {
+    /* from {
+    } */
+    
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
 .message-row--own {
     justify-content: flex-end;
+    
+    opacity: 0;
+    transform: translateX(100px);
+
+    animation: message-left-popup 0.3s ease-in-out forwards;
+    animation-delay: 0.6s;
 }
 
 .message-row--own .message__bubble {
@@ -102,6 +141,7 @@
     padding: 5px 15px;
     align-items: center;
     box-sizing: border-box;
+    transition: all .3s ease-in-out;
 }
 
 .reply .reply__column:first-child {
@@ -124,17 +164,18 @@
     border:var(--main-border);
     border-radius: 20px;
     box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
 }
 
 .reply__column:last-child > i,
 .reply__column:last-child button {
     position: absolute;
-    right: 6px;
-    top: 5px;
+    right: -1px;
+    top: 3.5px;
 }
 
 .reply__column:last-child > i {
-    right: 44px;
+    right: 37px;
     top: 12px;
 }
 
@@ -153,4 +194,25 @@
 .reply__column button:focus,
 .reply__column button:active {
     outline: none;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+    transition: opacity .3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+    opacity: 0;
+}
+
+.reply input:focus {
+    width: 90vw;
+    transform: translateX(-6%) translateY(-80px);
+}
+
+.reply:focus-within {
+    transform: translateY(80px);
 }
